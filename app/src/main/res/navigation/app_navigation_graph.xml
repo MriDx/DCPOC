@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_navigation_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mridx.androidtemplate.presentation.app.fragment.home.HomeFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mridx.androidtemplate.presentation.app.fragment.settings.SettingsFragment"
+        android:label="Settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_logoutDialog"
+            app:destination="@id/logoutDialog" />
+        <action
+            android:id="@+id/action_settingsFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/logoutDialog"
+        android:name="com.mridx.androidtemplate.presentation.auth.fragment.logout.LogoutDialog"
+        android:label="Logout" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.mridx.androidtemplate.presentation.app.fragment.web_view.WebViewFragment"
+        android:label="{title}">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="webViewModel"
+            app:argType="com.sumato.ino.officer.data.local.model.web_view.WebViewModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.mridx.androidtemplate.presentation.user.fragment.profile.fragment.ProfileFragment"
+        android:label="Profile" />
+
+</navigation>
